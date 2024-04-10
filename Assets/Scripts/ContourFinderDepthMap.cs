@@ -35,31 +35,42 @@ public class ContourFinderDepthMap : WebCamera
 
         Cv2.FindContours(image, out Point[][] contours, out HierarchyIndex[] hierarchy, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple, null);
 
-        // invert it back
+PolygonCollider.pathCount = 0; // Remove all colliders stored in the component
 
-        PolygonCollider.pathCount = 0; // Remove all colliders stored in the component
+for (int i = 0; i < contours.Length; i++)
+{
+    Point[] contour = contours[i];
+    HierarchyIndex hIndex = hierarchy[i];
 
-        foreach (Point[] contour in contours)
-        {
-            Point[] points = Cv2.ApproxPolyDP(contour, CurveAccuracy, true);
-            var area = Cv2.ContourArea(contour);
-            
-            if (area > MinArea)
-            {
-                drawContour(image, new Scalar(128, 128,128), 2, points);
-                // Add the collider to the PolygonCollider component
-                PolygonCollider.pathCount++;
-                PolygonCollider.SetPath(PolygonCollider.pathCount-1, toVector2(points));
-            }
-        }
+    // Skip if it's an outer contour
+    if (hIndex.Parent != -1)
+        continue;
+
+    Point[] points = Cv2.ApproxPolyDP(contour, CurveAccuracy, true);
+    var area = Cv2.ContourArea(contour);
+    
+    if (area > MinArea)
+    {
+        drawContour(image, new Scalar(128, 128,128), 2, points);
+        // Add the collider to the PolygonCollider component
+        PolygonCollider.pathCount++;
+        PolygonCollider.SetPath(PolygonCollider.pathCount-1, toVector2(points));
+    }
+
+
+}
         
 
         if(output == null)
         {
+            // invert color of the image for display
+            Cv2.BitwiseNot(image, image);
             output = OpenCvSharp.Unity.MatToTexture(image);
+
         }
         else
         {
+            Cv2.BitwiseNot(image, image);
             OpenCvSharp.Unity.MatToTexture(image, output);
         }
 
