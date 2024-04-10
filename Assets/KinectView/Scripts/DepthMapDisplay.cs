@@ -3,16 +3,17 @@ using Windows.Kinect;
 using OpenCvSharp;
 using OpenCvSharp.Demo;
 
+
 public class DepthMapDisplay : MonoBehaviour
 {
     public Material depthMapMaterial; // Material to apply the depth map texture
+    public GameObject Surface; // Surface to apply the depth map texture
 
     private KinectSensor sensor;
     private DepthFrameReader depthReader;
     private BodyFrameReader bodyReader;
     private ushort[] depthData;
     private Texture2D depthTexture;
-    private Body[] bodies;
     private Mat image;
 
     public float thresholdValue = 1000.0f;
@@ -53,7 +54,7 @@ public class DepthMapDisplay : MonoBehaviour
             var bodyFrame = bodyReader.AcquireLatestFrame();
             if (bodyFrame != null)
             {
-                bodies = new Body[sensor.BodyFrameSource.BodyCount];
+                Body[] bodies = new Body[sensor.BodyFrameSource.BodyCount];
                 bodyFrame.GetAndRefreshBodyData(bodies);
                 bodyFrame.Dispose();
                 bodyFrame = null;
@@ -65,7 +66,7 @@ public class DepthMapDisplay : MonoBehaviour
 
     void UpdateDepthTexture()
     {
-        if (depthData == null || bodies == null)
+        if (depthData == null)
             return;
 
         Color[] colors = new Color[depthData.Length];
@@ -81,7 +82,13 @@ public class DepthMapDisplay : MonoBehaviour
         depthTexture.SetPixels(colors);
         depthTexture.Apply();
         depthMapMaterial.mainTexture = depthTexture; // Apply depth map texture to material
+
+        // Convert depth texture to Mat
+        image = OpenCvSharp.Unity.TextureToMat(depthTexture);
+
+        // Perform your OpenCV operations on the 'image' Mat here
+
+        // Apply the processed texture back to a GameObject if needed
+        Surface.GetComponent<Renderer>().material.mainTexture = OpenCvSharp.Unity.MatToTexture(image);
     }
-
-
 }

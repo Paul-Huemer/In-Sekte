@@ -20,9 +20,22 @@ public class ContourFinder : WebCamera
     private Vector2[] vectorList;
     
     //Cool processing stuff!
+
+    void Start()
+    {
+        WebCamDevice[] devices = WebCamTexture.devices;
+        
+        
+
+        
+        
+    }
     protected override bool ProcessTexture(WebCamTexture input, ref Texture2D output)
     {
         image = OpenCvSharp.Unity.TextureToMat(input);
+
+        
+        
         
         Cv2.Flip(image, image, ImageFlip); // Flip the image
         Cv2.CvtColor(image, processImage, ColorConversionCodes.BGR2GRAY); // Convert the image to grayscale
