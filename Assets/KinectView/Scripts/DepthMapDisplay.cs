@@ -1,11 +1,11 @@
 using UnityEngine;
 using Windows.Kinect;
+using OpenCvSharp;
+using OpenCvSharp.Demo;
 
 public class DepthMapDisplay : MonoBehaviour
 {
     public Material depthMapMaterial; // Material to apply the depth map texture
-    public float maxDepth = 4.0f; // Maximum depth value in meters
-    public float threshold = 2.0f; // Threshold distance in meters
 
     private KinectSensor sensor;
     private DepthFrameReader depthReader;
@@ -13,6 +13,7 @@ public class DepthMapDisplay : MonoBehaviour
     private ushort[] depthData;
     private Texture2D depthTexture;
     private Body[] bodies;
+    private Mat image;
 
     public float thresholdValue = 1000.0f;
 
@@ -71,10 +72,9 @@ public class DepthMapDisplay : MonoBehaviour
         for (int i = 0; i < depthData.Length; i++)
         {
             ushort depth = depthData[i];
-            float normalizedDepth = depth / thresholdValue; // Normalize depth value to meters
 
-            // Map depth to black (closer than threshold) or white (farther than threshold)
-            byte colorValue = (normalizedDepth <= threshold) ? (byte)0 : (byte)255;
+            // Map depth to a color value between 0 and 255
+            byte colorValue = (byte)(depth % 256);
             colors[i] = new Color32(colorValue, colorValue, colorValue, 255);
         }
 
@@ -84,34 +84,4 @@ public class DepthMapDisplay : MonoBehaviour
     }
 
 
-    int GetDepthIndex(int x, int y)
-    {
-        var depthFrameDesc = sensor.DepthFrameSource.FrameDescription;
-        int depthIndex = y * depthFrameDesc.Width + x;
-        return depthIndex;
-    }
-
-    void OnDestroy()
-    {
-        if (depthReader != null)
-        {
-            depthReader.Dispose();
-            depthReader = null;
-        }
-
-        if (bodyReader != null)
-        {
-            bodyReader.Dispose();
-            bodyReader = null;
-        }
-
-        if (sensor != null)
-        {
-            if (sensor.IsOpen)
-            {
-                sensor.Close();
-            }
-            sensor = null;
-        }
-    }
 }

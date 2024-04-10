@@ -19,10 +19,6 @@ public class ContourFinderDepthMap : WebCamera
         if (frameCount % processEveryNthFrame == 0)
         {
             image = OpenCvSharp.Unity.TextureToMat(input);
-            Cv2.Flip(image, image, FlipMode.Y);
-            Cv2.CvtColor(image, image, ColorConversionCodes.BGR2GRAY);
-            // half the resolution
-            Cv2.Resize(image, image, new OpenCvSharp.Size(image.Width / 2, image.Height / 2));
         }
 
         if(output == null)
