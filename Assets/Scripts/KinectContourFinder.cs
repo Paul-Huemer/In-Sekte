@@ -34,8 +34,8 @@ public class KinectContourFinder : WebCamera
         
         Cv2.Flip(image, image, ImageFlip); // Flip the image
         Cv2.CvtColor(image, processImage, ColorConversionCodes.BGR2GRAY); // Convert the image to grayscale
-        Cv2.Threshold(processImage, processImage, Threshold, 255, ThresholdTypes.BinaryInv); // Put a threshold on the image
-        Cv2.FindContours(processImage, out contours, out hierarchy, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple, null); // Find contours from the grayscale image
+        Cv2.FindContours(processImage, out contours, out hierarchy, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple, null); // Find contours from the grayscale image#endregion
+        Cv2.BitwiseNot(processImage, processImage);
         
         PolygonCollider.pathCount = 0; // Remove all colliders stored in the component
         foreach (Point[] contour in contours)
@@ -45,7 +45,7 @@ public class KinectContourFinder : WebCamera
             
             if (area > MinArea)
             {
-                drawContour(processImage, new Scalar(128, 128,128), 2, points);
+                // drawContour(processImage, new Scalar(128, 128,128), 2, points);
                 // Add the collider to the PolygonCollider component
                 PolygonCollider.pathCount++;
                 PolygonCollider.SetPath(PolygonCollider.pathCount-1, toVector2(points));
@@ -54,9 +54,10 @@ public class KinectContourFinder : WebCamera
             
         if (output == null)
         {
-            output = OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image );
+            // output = OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image );
         } else
         {
+            // bitwise invert
             OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image, output);
         }
         return true;
