@@ -54,7 +54,7 @@ public class KinectContourFinder : WebCamera
             
         if (output == null)
         {
-            // output = OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image );
+            output = OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image );
         } else
         {
             // bitwise invert

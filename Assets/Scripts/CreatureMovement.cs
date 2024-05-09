@@ -13,19 +13,23 @@ public class Creature : MonoBehaviour
 
     public GameObject Goal; // The goal object
     // public GameObject Floor; // The floor object
+    public GameObject ShiluetteCollider; // The shiluette 2d collider object
 
     private Vector3 originalScale; // The original scale of the creature
 
     void Start()
     {
-        int startSize = Random.Range(4, 8);
+        float startSize = Random.Range(1, 4);
+        startSize = startSize / 4;
         transform.localScale = new Vector3(startSize, startSize, startSize);
         originalScale = transform.localScale;
 
         // Floor = GameObject.Find("Floor");
         Goal = GameObject.Find("Goal");
+        ShiluetteCollider = GameObject.Find("ShiluetteCollider");
 
         jumpForce = Random.Range(7, 15);
+    
         speed = Random.Range(2, 4);
 
 
@@ -39,12 +43,13 @@ public class Creature : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // only gameobjects without the CreatureMove script are considered the floor
-        if (!collision.gameObject.GetComponent<Creature>())
+        if (!collision.gameObject.GetComponent<Creature>() && collision.gameObject != ShiluetteCollider)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             StartCoroutine(RegularSquashAndStretch());
-        } else {
-
+        } else if (collision.gameObject == ShiluetteCollider)
+        {
+            StartCoroutine(SmallSquashAndStretch());
         }
 
 
@@ -66,7 +71,7 @@ public class Creature : MonoBehaviour
 
         transform.localScale = squashedScale;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
 
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
