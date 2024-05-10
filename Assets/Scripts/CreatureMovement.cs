@@ -49,6 +49,20 @@ public class Creature : MonoBehaviour
             StartCoroutine(RegularSquashAndStretch());
         } else if (collision.gameObject == ShiluetteCollider)
         {
+            // check if angle is less than 45 degrees
+            Vector3 normal = collision.contacts[0].normal;
+            float angle = Vector3.Angle(Vector3.up, normal);
+            if (angle < 45)
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                StartCoroutine(RegularSquashAndStretch());
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce/8, ForceMode2D.Impulse);
+                StartCoroutine(SmallSquashAndStretch());
+            }
+            // GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);
             StartCoroutine(SmallSquashAndStretch());
         }
 

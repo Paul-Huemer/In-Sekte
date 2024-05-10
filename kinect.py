@@ -20,8 +20,8 @@ cv2.resizeWindow('KINECT Video Stream', 512, 424)
 
 
 
-depth_min = 200
-depth_max = 2100
+depth_min = 300
+depth_max = 2300
 # # Create trackbars for min_depth and max_depth
 # cv2.createTrackbar('Min Depth', 'KINECT Video Stream', depth_min, 5000, nothing)
 # cv2.createTrackbar('Max Depth', 'KINECT Video Stream', depth_max, 5000, nothing)
