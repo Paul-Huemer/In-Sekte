@@ -9,6 +9,8 @@ public class Creature : MonoBehaviour
     public float squashAmount = 0.8f; // The amount to squash and stretch the creature
     public float stretchSpeed = 2.0f; // The speed of the stretching effect
 
+    public bool isInvincible = false; // Whether the creature is invincible
+
     private bool isStretching = false; // Whether the creature is currently stretching
 
     public GameObject Goal; // The goal object

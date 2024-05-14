@@ -16,6 +16,10 @@ public class CreatureKiller : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Creature>())
         {
+            if(collision.gameObject.GetComponent<Creature>().isInvincible)
+            {
+                return;
+            }
             StartCoroutine(SlowlyKillCreature(collision.gameObject));
         }
     }

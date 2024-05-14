@@ -29,9 +29,27 @@ public class creatureGoal : MonoBehaviour
         {
             creatureSpawner.maxCreatureCount -= 1;
             creatureCount += 1;
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Creature>().isInvincible = true;
+            StartCoroutine(DestroyCreature(collision.gameObject));
         }
         
+    }
+
+    //  destroy creature by making it smaller gradually
+    IEnumerator DestroyCreature(GameObject creatureToDestroy)
+    {
+        float timeElapsed = 0;
+        Vector3 originalScale = creatureToDestroy.transform.localScale;
+        while (timeElapsed < 2.0f)
+        {
+            timeElapsed += Time.deltaTime;
+            float t = timeElapsed / 2.0f;
+            creatureToDestroy.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);
+            yield return null;
+        }
+        // wait 1 second 
+        yield return new WaitForSeconds(1.0f);
+        Destroy(creatureToDestroy);
     }
 
 
