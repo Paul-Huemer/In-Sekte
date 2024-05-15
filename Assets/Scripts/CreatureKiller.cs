@@ -26,6 +26,8 @@ public class CreatureKiller : MonoBehaviour
 
     IEnumerator SlowlyKillCreature(GameObject creatureToKill)
     {
+        // get death particles
+        creatureToKill.GetComponent<Creature>().deathParticles.Play();
         float timeElapsed = 0;
         Vector3 originalScale = creatureToKill.transform.localScale;
         while (timeElapsed < killTime)

@@ -18,6 +18,7 @@ public class Creature : MonoBehaviour
     public GameObject ShiluetteCollider; // The shiluette 2d collider object
 
     private Vector3 originalScale; // The original scale of the creature
+    public ParticleSystem deathParticles;
 
     void Start()
     {
