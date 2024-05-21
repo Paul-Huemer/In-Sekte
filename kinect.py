@@ -48,6 +48,12 @@ while True:
         frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
         # frame = 255 - frame
 
+        # # and now every white pixel green
+        # frame[frame[:, :, 0] == 255] = [0, 255, 0]
+        # frame[frame[:, :, 1] == 255] = [0, 255, 0]
+        # frame[frame[:, :, 2] == 255] = [0, 255, 0]
+
+
 
 
 

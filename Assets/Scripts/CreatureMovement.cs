@@ -19,6 +19,8 @@ public class Creature : MonoBehaviour
 
     private Vector3 originalScale; // The original scale of the creature
     public ParticleSystem deathParticles;
+    public AudioClip deathSound;
+    public AudioSource creatureAudioSource;
 
     void Start()
     {

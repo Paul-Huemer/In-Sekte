@@ -28,6 +28,7 @@ public class CreatureKiller : MonoBehaviour
     {
         // get death particles
         creatureToKill.GetComponent<Creature>().deathParticles.Play();
+        creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
         float timeElapsed = 0;
         Vector3 originalScale = creatureToKill.transform.localScale;
         while (timeElapsed < killTime)
