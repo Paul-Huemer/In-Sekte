@@ -8,15 +8,11 @@ public class CreatureUpdraft : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // despawn and set maxCreatureCount inside the CreatureSpawner.cs -1 so a new one doesnt spawn
-        
-
         if(collision.gameObject.GetComponent<Creature>())
         {
-
-            Debug.Log("Creature entered updraft");
+            // TODO Play a sound effect here
+            
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * updraftForce, ForceMode2D.Impulse);
-
         }
         
     }
