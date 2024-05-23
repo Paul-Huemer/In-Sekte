@@ -30,7 +30,7 @@ public class CreatureKiller : MonoBehaviour
                 return;
             }
 
-                StartCoroutine(SlowlyKillCreature(collision.gameObject));
+            StartCoroutine(SlowlyKillCreature(collision.gameObject));
 
             // StartCoroutine(SlowlyKillCreature(collision.gameObject));
         }
@@ -58,20 +58,25 @@ public class CreatureKiller : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        if(!instantKill) {
         if (collision.gameObject.GetComponent<Creature>())
         {
             collision.gameObject.GetComponent<Creature>().timeInDanger = 0;
+        }
         }
     }
 
     public IEnumerator SlowlyKillCreature(GameObject creatureToKill)
     {
         // add a time in danger
-        creatureToKill.GetComponent<Creature>().timeInDanger += Time.deltaTime;
+        if(!instantKill) {
+            creatureToKill.GetComponent<Creature>().timeInDanger += Time.deltaTime;
         if (creatureToKill.GetComponent<Creature>().timeInDanger < maxTimeInDanger)
         {
             yield break;
+        }   
         }
+        
 
         // creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
         

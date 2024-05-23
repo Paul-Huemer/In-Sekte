@@ -85,7 +85,7 @@ public class Creature : MonoBehaviour
             }
             else
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce/8, ForceMode2D.Impulse);
+                // GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce/8, ForceMode2D.Impulse);
                 StartCoroutine(SmallSquashAndStretch());
             }
             // GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);

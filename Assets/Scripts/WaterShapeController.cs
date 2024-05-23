@@ -34,17 +34,17 @@ public class WaterShapeController : MonoBehaviour
     public float spread = 0.006f;
 
 
-    void Start() { 
-       
-    }
-    void OnValidate() {
-        // Clean waterpoints 
-        // check if water is inactivated
-        // if (wavePoints.transform.childCount > 0) {
-            StartCoroutine(CreateWaves());
-        // }
+//     void OnValidate()
+// {
+//     if (gameObject.activeInHierarchy)
+//     {
+//         StartCoroutine(CreateWaves());
+//     }
+// }
+void Start() { 
+    StartCoroutine(CreateWaves());
+}
 
-    }
     IEnumerator CreateWaves() {
         foreach (Transform child in wavePoints.transform) {
             StartCoroutine(Destroy(child.gameObject));

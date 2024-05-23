@@ -19,6 +19,14 @@ public class WaterSpring : MonoBehaviour
 
     public ParticleSystem splashParticles;
 
+    public GameObject ShiluetteCollider; // The shiluette 2d collider object
+
+    public void Start()
+    {
+        ShiluetteCollider = GameObject.Find("ShiluetteCollider");
+    }
+
+
 
 
     public void Init(SpriteShapeController ssc) { 
@@ -54,8 +62,10 @@ public class WaterSpring : MonoBehaviour
     // create a wave if creature entes the trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // print("Collision with " + collision.gameObject.name);
-        // if it is a creature add force to the spring and update the wav
+        // if playerCollider enters the trigger
+        print("Collision with " + collision.gameObject.name); 
+        
+    // public GameObject PlayerCollider;
         if (collision.gameObject.GetComponent<Creature>())
         {
             
@@ -66,7 +76,14 @@ public class WaterSpring : MonoBehaviour
             velocity = 0.1f;
             WaveSpringUpdate(0.1f, 0.1f);
             WavePointUpdate();
+        } else if (collision.gameObject == ShiluetteCollider)
+        {
+            velocity = 0.01f;
+            WaveSpringUpdate(0.01f, 0.01f);
+            WavePointUpdate();
         }
 
     }
+
+    
 }
