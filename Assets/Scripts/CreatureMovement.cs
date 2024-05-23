@@ -22,6 +22,8 @@ public class Creature : MonoBehaviour
     public AudioClip deathSound;
     public AudioSource creatureAudioSource;
 
+    public float timeInDanger = 0.0f;
+
     void Start()
     {
         float startSize = Random.Range(1, 4);

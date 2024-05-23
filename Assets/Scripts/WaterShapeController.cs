@@ -16,6 +16,10 @@ public class WaterShapeController : MonoBehaviour
     [SerializeField]
     private GameObject wavePoints;
 
+    public CreatureKiller creatureKiller; // Add this line
+
+    public float drownTime = 2.0f;
+
     public float waterUpdraft = 2.0f;
 
     [SerializeField]
@@ -28,6 +32,7 @@ public class WaterShapeController : MonoBehaviour
     public float dampening = 0.03f;
     // How much to spread to the other springs
     public float spread = 0.006f;
+
 
     void Start() { 
        
@@ -158,7 +163,6 @@ public class WaterShapeController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("Collision with " + collision.gameObject.name);
-        // if it is a creature add force to the spring and update the wav
         if (collision.gameObject.GetComponent<Creature>())
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * waterUpdraft, ForceMode2D.Impulse);
@@ -167,4 +171,22 @@ public class WaterShapeController : MonoBehaviour
         }
 
     }
+
+    
+
+    // count time that creature is in the water TimeInDanger += Time.deltaTime;
+    // if TimeInDanger > 2.0f then kill the creature
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Creature>())
+        {
+            collision.gameObject.GetComponent<Creature>().timeInDanger = 0;
+        }
+    }
+
+    
+
+    
+
+    
 }

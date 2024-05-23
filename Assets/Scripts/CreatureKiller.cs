@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CreatureKiller : MonoBehaviour
 {
+    public float maxTimeInDanger = 2.0f;
     public float killTime = 2.0f;
+
+    public bool instantKill = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,20 +17,60 @@ public class CreatureKiller : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if(instantKill) {
         if (collision.gameObject.GetComponent<Creature>())
         {
+            // add a time in danger
+            collision.gameObject.GetComponent<Creature>().timeInDanger += Time.deltaTime;
+
             if(collision.gameObject.GetComponent<Creature>().isInvincible)
             {
                 return;
             }
-            StartCoroutine(SlowlyKillCreature(collision.gameObject));
+
+                StartCoroutine(SlowlyKillCreature(collision.gameObject));
+
+            // StartCoroutine(SlowlyKillCreature(collision.gameObject));
+        }
         }
     }
 
-    IEnumerator SlowlyKillCreature(GameObject creatureToKill)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        // get death particles
-        // creatureToKill.GetComponent<Creature>().deathParticles.Play();
+        if (!instantKill){
+        
+        if (collision.gameObject.GetComponent<Creature>())
+        {
+            // add a time in danger
+            collision.gameObject.GetComponent<Creature>().timeInDanger += Time.deltaTime;
+
+            if (collision.gameObject.GetComponent<Creature>().isInvincible)
+            {
+                return;
+            }
+
+            StartCoroutine(SlowlyKillCreature(collision.gameObject));
+        }
+    }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Creature>())
+        {
+            collision.gameObject.GetComponent<Creature>().timeInDanger = 0;
+        }
+    }
+
+    public IEnumerator SlowlyKillCreature(GameObject creatureToKill)
+    {
+        // add a time in danger
+        creatureToKill.GetComponent<Creature>().timeInDanger += Time.deltaTime;
+        if (creatureToKill.GetComponent<Creature>().timeInDanger < maxTimeInDanger)
+        {
+            yield break;
+        }
+
         creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
         float timeElapsed = 0;
         Vector3 originalScale = creatureToKill.transform.localScale;
