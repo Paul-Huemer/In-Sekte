@@ -19,12 +19,16 @@ public class Creature : MonoBehaviour
 
     private Vector3 originalScale; // The original scale of the creature
     public ParticleSystem deathParticles;
-    public AudioClip deathSound;
+    // public AudioClip deathSound;
     public AudioSource creatureAudioSource;
 
     public float timeInDanger = 0.0f;
 
     public int steepestAngle = 45; // The steepest angle the creature can walk on
+
+    // sound effect for creature
+    public AudioClip[] creatureSounds;
+
 
     void Start()
     {
@@ -33,7 +37,7 @@ public class Creature : MonoBehaviour
         transform.localScale = new Vector3(startSize, startSize, startSize);
         originalScale = transform.localScale;
 
-        // Floor = GameObject.Find("Floor");
+
         Goal = GameObject.Find("Goal");
         ShiluetteCollider = GameObject.Find("ShiluetteCollider");
 
@@ -41,7 +45,7 @@ public class Creature : MonoBehaviour
     
         speed = Random.Range(2, 4);
 
-
+        creatureSounds = Resources.LoadAll<AudioClip>("CreatureNoisesV2");
     }
 
     void Update()
@@ -51,6 +55,11 @@ public class Creature : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // play a random creature sound
+        creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
+
+
+
         // only gameobjects without the CreatureMove script are considered the floor
         if (!collision.gameObject.GetComponent<Creature>() && collision.gameObject != ShiluetteCollider)
         {

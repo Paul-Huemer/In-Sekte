@@ -73,7 +73,7 @@ public class CreatureKiller : MonoBehaviour
             yield break;
         }
 
-        creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
+        // creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
         
         if(deathParticles) {
             creatureToKill.GetComponent<Creature>().deathParticles.Play();
@@ -84,6 +84,10 @@ public class CreatureKiller : MonoBehaviour
         Vector3 originalScale = creatureToKill.transform.localScale;
         while (timeElapsed < killTime)
         {
+            if (creatureToKill == null)
+            {
+                yield break;
+            }
             timeElapsed += Time.deltaTime;
             float t = timeElapsed / killTime;
             creatureToKill.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);

@@ -39,7 +39,11 @@ public class WaterShapeController : MonoBehaviour
     }
     void OnValidate() {
         // Clean waterpoints 
-        StartCoroutine(CreateWaves());
+        // check if water is inactivated
+        // if (wavePoints.transform.childCount > 0) {
+            StartCoroutine(CreateWaves());
+        // }
+
     }
     IEnumerator CreateWaves() {
         foreach (Transform child in wavePoints.transform) {
@@ -162,7 +166,7 @@ public class WaterShapeController : MonoBehaviour
     // create a wave if creature entes the trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Collision with " + collision.gameObject.name);
+        // print("Collision with " + collision.gameObject.name);
         if (collision.gameObject.GetComponent<Creature>())
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * waterUpdraft, ForceMode2D.Impulse);

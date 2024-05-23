@@ -54,7 +54,7 @@ public class WaterSpring : MonoBehaviour
     // create a wave if creature entes the trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Collision with " + collision.gameObject.name);
+        // print("Collision with " + collision.gameObject.name);
         // if it is a creature add force to the spring and update the wav
         if (collision.gameObject.GetComponent<Creature>())
         {
