@@ -8,7 +8,9 @@ public class CreatureKiller : MonoBehaviour
     public float killTime = 2.0f;
 
     public bool instantKill = false;
-    // Start is called before the first frame update
+
+    public bool deathParticles = true;
+
     void Start()
     {
 
@@ -72,6 +74,12 @@ public class CreatureKiller : MonoBehaviour
         }
 
         creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
+        
+        if(deathParticles) {
+            creatureToKill.GetComponent<Creature>().deathParticles.Play();
+        }
+
+
         float timeElapsed = 0;
         Vector3 originalScale = creatureToKill.transform.localScale;
         while (timeElapsed < killTime)

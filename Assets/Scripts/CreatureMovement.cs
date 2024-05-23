@@ -24,6 +24,8 @@ public class Creature : MonoBehaviour
 
     public float timeInDanger = 0.0f;
 
+    public int steepestAngle = 45; // The steepest angle the creature can walk on
+
     void Start()
     {
         float startSize = Random.Range(1, 4);
@@ -52,8 +54,16 @@ public class Creature : MonoBehaviour
         // only gameobjects without the CreatureMove script are considered the floor
         if (!collision.gameObject.GetComponent<Creature>() && collision.gameObject != ShiluetteCollider)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            StartCoroutine(RegularSquashAndStretch());
+            // if angle is less than 45 degrees
+            if (collision.contacts[0].normal.y > Mathf.Sin(steepestAngle * Mathf.Deg2Rad))
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                StartCoroutine(RegularSquashAndStretch());
+            }
+            else
+            {
+
+            }
         } else if (collision.gameObject == ShiluetteCollider)
         {
             // check if angle is less than 45 degrees
