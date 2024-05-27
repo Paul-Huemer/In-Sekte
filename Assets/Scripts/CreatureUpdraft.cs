@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreatureUpdraft : MonoBehaviour
 {
     public float updraftForce = 2.0f;
-    // draft direction in degree
+    
     public float updraftDirection = 0.0f;
 
     public bool showDirectionGizmo = true;
@@ -13,6 +13,8 @@ public class CreatureUpdraft : MonoBehaviour
     public bool showAreaGizmo = true;
 
     public Vector3 size;
+
+    public ParticleSystem updraftParticles;
 
     void Start()
     {
@@ -47,6 +49,8 @@ public class CreatureUpdraft : MonoBehaviour
         if(collision.gameObject.GetComponent<Creature>())
         {
             // TODO Play a sound effect here
+
+            updraftParticles.Play();
             
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, updraftDirection) * Vector2.up * updraftForce, ForceMode2D.Impulse);
         }

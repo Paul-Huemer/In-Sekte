@@ -4970,3 +4970,4 @@ MonoBehaviour:
   springTransform: {fileID: 7362635946706007866}
   spriteShapeController: {fileID: 0}
   splashParticles: {fileID: 5358508905158706355}
+  ShiluetteCollider: {fileID: 0}
