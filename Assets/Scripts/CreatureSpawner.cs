@@ -14,7 +14,7 @@ public class CreatureSpawner : MonoBehaviour
 
     public float spawnInterval = 4.0f;
 
-    private GameObject[] creatures = new GameObject[10];
+    public GameObject[] creatures = new GameObject[10];
 
     void Start()
     {
