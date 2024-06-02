@@ -21,9 +21,14 @@ public class WaterSpring : MonoBehaviour
 
     public GameObject ShiluetteCollider; // The shiluette 2d collider object
 
+    public AudioClip[] waterCollisionSounds;
+
+    public AudioSource waveAudioSource;
+
     public void Start()
     {
         ShiluetteCollider = GameObject.Find("ShiluetteCollider");
+        waterCollisionSounds = Resources.LoadAll<AudioClip>("CreatureDeaths");
     }
 
 
@@ -72,6 +77,9 @@ public class WaterSpring : MonoBehaviour
             // play the splash particles on the startpos of the spring in world space 
             splashParticles.transform.position = transform.TransformPoint(startPos);
             splashParticles.Play();
+            
+            // play dat sound
+            waveAudioSource.PlayOneShot(waterCollisionSounds[Random.Range(0, waterCollisionSounds.Length)]);
 
             velocity = 0.1f;
             WaveSpringUpdate(0.1f, 0.1f);
