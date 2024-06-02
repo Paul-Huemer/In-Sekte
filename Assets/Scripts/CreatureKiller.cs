@@ -23,6 +23,7 @@ public class CreatureKiller : MonoBehaviour
         if (collision.gameObject.GetComponent<Creature>())
         {
             // add a time in danger
+            collision.gameObject.GetComponent<Creature>().isBasicallyDead = true;
             collision.gameObject.GetComponent<Creature>().timeInDanger += Time.deltaTime;
 
             if(collision.gameObject.GetComponent<Creature>().isInvincible)
@@ -53,7 +54,7 @@ public class CreatureKiller : MonoBehaviour
 
             StartCoroutine(SlowlyKillCreature(collision.gameObject));
         }
-    }
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -76,11 +77,14 @@ public class CreatureKiller : MonoBehaviour
             yield break;
         }   
         }
+
+         creatureToKill.GetComponent<Creature>().isBasicallyDead = true;
         
 
         // creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
         
         if(deathParticles) {
+            
             creatureToKill.GetComponent<Creature>().deathParticles.Play();
         }
 
@@ -99,6 +103,7 @@ public class CreatureKiller : MonoBehaviour
             yield return null;
         }
         // wait 1 second 
+        
         yield return new WaitForSeconds(1.0f);
         Destroy(creatureToKill);
     }

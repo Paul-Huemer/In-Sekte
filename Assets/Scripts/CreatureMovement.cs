@@ -10,6 +10,7 @@ public class Creature : MonoBehaviour
     public float stretchSpeed = 2.0f; // The speed of the stretching effect
 
     public bool isInvincible = false; // Whether the creature is invincible
+    public bool isBasicallyDead = false; // Whether the creature is basically dead
 
     private bool isStretching = false; // Whether the creature is currently stretching
 
@@ -95,6 +96,9 @@ public class Creature : MonoBehaviour
 
     }
     IEnumerator SmallSquashAndStretch() {
+        if (isInvincible || isBasicallyDead) {
+            yield break;
+        } else {
         Vector3 originalScale = transform.localScale;
         originalScale.x = originalScale.z;
         originalScale.y = originalScale.z;
@@ -121,10 +125,14 @@ public class Creature : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+         }
     }
 
     IEnumerator RegularSquashAndStretch()
     {
+        if (isInvincible || isBasicallyDead) {
+            yield break;
+        } else {
         Vector3 originalScale = transform.localScale;
         originalScale.x = originalScale.z;
         originalScale.y = originalScale.z;
@@ -155,6 +163,7 @@ public class Creature : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+    }
     }
 
 }
