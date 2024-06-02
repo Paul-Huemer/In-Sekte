@@ -57,7 +57,11 @@ public class Creature : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // play a random creature sound
+        if (isInvincible || isBasicallyDead) {
+            return;
+        } else {
         creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
+        }
 
 
 
@@ -117,6 +121,10 @@ public class Creature : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
 
+        if (isInvincible || isBasicallyDead) {
+            yield break;
+        } else {
+
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
             float progress = t / duration;
@@ -126,6 +134,8 @@ public class Creature : MonoBehaviour
 
         transform.localScale = originalScale;
          }
+        }
+
     }
 
     IEnumerator RegularSquashAndStretch()
@@ -154,8 +164,10 @@ public class Creature : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
+        if (isInvincible || isBasicallyDead) {
+            yield break;
+        } else {
+            for (float t = 0; t < duration; t += Time.deltaTime)
         {
             float progress = t / duration;
             transform.localScale = Vector3.Lerp(squashedScale, originalScale, progress);
@@ -163,6 +175,10 @@ public class Creature : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+        }
+
+
+        
     }
     }
 
