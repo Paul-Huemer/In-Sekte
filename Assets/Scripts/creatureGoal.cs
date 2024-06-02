@@ -8,11 +8,16 @@ public class creatureGoal : MonoBehaviour
     private int maxCreatureCount;
     public int creatureCount = 0;
     public AudioClip[] creatureWinSounds;
+    public ParticleSystem winParticles;
+
+    public Animation GoalWiggleAnimation;
     void Start()
     {
         creatureWinSounds = Resources.LoadAll<AudioClip>("CreatureWin");
         creatureSpawner = GameObject.Find("CreatureSpawner").GetComponent<CreatureSpawner>();
         maxCreatureCount = creatureSpawner.maxCreatureCount;
+
+        
 
 
     }
@@ -26,6 +31,9 @@ public class creatureGoal : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Creature>().isInvincible == false)
         {
+            winParticles.Play();
+            GoalWiggleAnimation.Play();
+
             collision.gameObject.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureWinSounds[Random.Range(0, creatureWinSounds.Length)]);
         }
 
@@ -54,6 +62,4 @@ public class creatureGoal : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Destroy(creatureToDestroy);
     }
-
-
 }
