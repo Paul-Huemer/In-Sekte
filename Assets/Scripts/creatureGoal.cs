@@ -6,34 +6,37 @@ public class creatureGoal : MonoBehaviour
 {
     private CreatureSpawner creatureSpawner;
     private int maxCreatureCount;
-
     public int creatureCount = 0;
-    // Start is called before the first frame update
+    public AudioClip[] creatureWinSounds;
     void Start()
     {
+        creatureWinSounds = Resources.LoadAll<AudioClip>("CreatureWin");
         creatureSpawner = GameObject.Find("CreatureSpawner").GetComponent<CreatureSpawner>();
         maxCreatureCount = creatureSpawner.maxCreatureCount;
-        
-        
+
+
     }
 
     // Update is called once per frame
 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.gameObject.GetComponent<Creature>())
     {
-        // despawn and set maxCreatureCount inside the CreatureSpawner.cs -1 so a new one doesnt spawn
-        
-
-        if(collision.gameObject.GetComponent<Creature>())
+        if (collision.gameObject.GetComponent<Creature>().isInvincible == false)
         {
-            creatureSpawner.maxCreatureCount -= 1;
-            creatureCount += 1;
-            collision.gameObject.GetComponent<Creature>().isInvincible = true;
-            StartCoroutine(DestroyCreature(collision.gameObject));
+            collision.gameObject.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureWinSounds[Random.Range(0, creatureWinSounds.Length)]);
         }
-        
+
+        creatureCount += 1;
+        collision.gameObject.GetComponent<Creature>().isInvincible = true;
+        StartCoroutine(DestroyCreature(collision.gameObject));
+
+        // Decrement maxCreatureCount in the CreatureSpawner object
+        creatureSpawner.maxCreatureCount -= 1;
     }
+}
 
     //  destroy creature by making it smaller gradually
     IEnumerator DestroyCreature(GameObject creatureToDestroy)
