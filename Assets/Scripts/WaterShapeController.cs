@@ -173,8 +173,43 @@ void Start() {
             // half the speed of the gameobject
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity / 2;
         }
+        // if has BuoyantObject Script then add force to the object to make it float
+        if (collision.gameObject.GetComponent<BuoyantObject>())
+        {
+            // half the speed of the gameobject
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity / 2;
+        }
+        
+
+
 
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+{
+    if (collision.gameObject.GetComponent<BuoyantObject>())
+    {
+        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+        // Calculate the depth of the object in the water
+        float waterLevel = transform.position.y + GetComponent<Collider2D>().bounds.extents.y;
+        float objectBottom = collision.transform.position.y - collision.bounds.extents.y;
+        float depth = Mathf.Clamp(waterLevel - objectBottom, 0, Mathf.Infinity);
+
+        // Apply an upward force proportional to the depth of the object in the water
+        float buoyancyForce = depth * 10f;
+        rb.AddForce(Vector2.up * buoyancyForce, ForceMode2D.Force);
+
+        // Apply a damping force to simulate water resistance
+        float dampingForce = rb.velocity.y * 2f;
+        rb.AddForce(Vector2.down * dampingForce, ForceMode2D.Force);
+
+        // Apply a torque to make the object rotate towards the upright position
+        float rotationDifference = 0 - rb.rotation;
+        float torque = rotationDifference * 2f;
+        rb.AddTorque(torque);
+    }
+}
 
     
 

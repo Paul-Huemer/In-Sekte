@@ -89,6 +89,18 @@ public class WaterSpring : MonoBehaviour
             velocity = 0.01f;
             WaveSpringUpdate(0.01f, 0.01f);
             WavePointUpdate();
+        } else if (collision.gameObject.GetComponent<BuoyantObject>())
+        {
+            // play the splash particles on the startpos of the spring in world space 
+            splashParticles.transform.position = transform.TransformPoint(startPos);
+            splashParticles.Play();
+            
+            // play dat sound
+            waveAudioSource.PlayOneShot(waterCollisionSounds[Random.Range(0, waterCollisionSounds.Length)]);
+
+            velocity = 0.01f;
+            WaveSpringUpdate(0.005f, 0.005f);
+            WavePointUpdate();
         }
 
     }
