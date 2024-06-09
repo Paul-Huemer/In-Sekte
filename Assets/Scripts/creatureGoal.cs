@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class creatureGoal : MonoBehaviour
 {
@@ -10,13 +11,17 @@ public class creatureGoal : MonoBehaviour
     public AudioClip[] creatureWinSounds;
     public ParticleSystem winParticles;
 
+    [SerializeField] public int minCreaturesToWin = 1; // Min Färglets to reach goal for the next scene to load
+    [SerializeField] public int sceneBuildIndex = 1; // Scene Index you can look that up in the build menu
+    [SerializeField] public GameObject winningText; // WinnignText Object inside the scene that has to be activated
+
     public Animation GoalWiggleAnimation;
     void Start()
     {
         creatureWinSounds = Resources.LoadAll<AudioClip>("CreatureWin");
         creatureSpawner = GameObject.Find("CreatureSpawner").GetComponent<CreatureSpawner>();
         maxCreatureCount = creatureSpawner.maxCreatureCount;
-
+        winningText.SetActive(false);
 
 
 
@@ -45,8 +50,19 @@ public class creatureGoal : MonoBehaviour
             // Decrement maxCreatureCount in the CreatureSpawner object
             creatureSpawner.maxCreatureCount -= 1;
         }
+
+        if (creatureCount == minCreaturesToWin)
+        {
+            print("Switching Scene to  " + sceneBuildIndex);
+            winningText.SetActive(true);
+            Invoke("LoadMyLevel", 2);
+        }
     }
 
+    private void LoadMyLevel()
+    {
+        SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single); // Loads scene specified with sceneBuildIndex
+    }
     //  destroy creature by making it smaller gradually
     IEnumerator DestroyCreature(GameObject creatureToDestroy)
 {

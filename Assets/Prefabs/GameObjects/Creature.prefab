@@ -4990,7 +4990,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.9914449, z: -0, w: -0.13052624}
   m_LocalPosition: {x: 907.61664, y: 545.88226, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4351983569923237298}
   - {fileID: 7921243568031339468}
@@ -5038,7 +5038,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4ec1a58fa92d91d4e93782785c282d95, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.94405115, b: 0.9017889, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5082,7 +5082,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5.12
+  m_Radius: 5.0389457
 --- !u!50 &8288362429512946756
 Rigidbody2D:
   serializedVersion: 4
@@ -5127,6 +5127,7 @@ MonoBehaviour:
   squashAmount: 0.8
   stretchSpeed: 2
   isInvincible: 0
+  isBasicallyDead: 0
   Goal: {fileID: 0}
   ShiluetteCollider: {fileID: 0}
   deathParticles: {fileID: 7131635589304877055}
