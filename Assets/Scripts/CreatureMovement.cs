@@ -33,8 +33,8 @@ public class Creature : MonoBehaviour
 
     void Start()
     {
-        float startSize = Random.Range(1, 4);
-        startSize = startSize / 4;
+        float startSize = Random.Range(2, 6);
+        startSize = startSize / 3;
         transform.localScale = new Vector3(startSize, startSize, startSize);
         originalScale = transform.localScale;
 
@@ -60,7 +60,12 @@ public class Creature : MonoBehaviour
         if (isInvincible || isBasicallyDead) {
             return;
         } else {
-        creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
+            // play a sound effect 25% of the time
+            if (Random.Range(0, 4) == 0)
+            {
+                creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
+            }
+        // creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
         }
 
 

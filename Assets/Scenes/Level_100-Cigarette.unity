@@ -1325,6 +1325,8 @@ GameObject:
   - component: {fileID: 560238758}
   - component: {fileID: 560238759}
   - component: {fileID: 560238760}
+  - component: {fileID: 560238761}
+  - component: {fileID: 560238762}
   m_Layer: 0
   m_Name: gsp-asset-fire_yellow_01
   m_TagString: Untagged
@@ -1449,7 +1451,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.65408325, y: -4.221837}
@@ -1480,6 +1482,34 @@ MonoBehaviour:
   maxTimeInDanger: 2
   killTime: 2
   instantKill: 1
+  deathParticles: 1
+--- !u!114 &560238761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560238755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edba57d38f2a9ba49a414b5fd2c1c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &560238762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560238755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79d741d8442c2b42bcf5de4fe6a435c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTimeInDanger: 2
+  killTime: 2
+  instantKill: 0
   deathParticles: 1
 --- !u!1001 &653960718
 PrefabInstance:
@@ -2942,6 +2972,94 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990b317ce061414499c8629d478ab913, type: 3}
+--- !u!1001 &1169335157
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.8805
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.8805
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.8805
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 934.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 511.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 871336115082896879, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583400726348179068, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_Name
+      value: Cigarette Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8319263451f6276438672632b7e45496, type: 3}
 --- !u!1001 &1176355018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4062,6 +4180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gsp-asset-cigarette_body
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340953956803445216, guid: 8e3154f3c2afc2b43a0745993656c373,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5624,3 +5747,4 @@ SceneRoots:
   - {fileID: 696693699}
   - {fileID: 1655331497}
   - {fileID: 490359607}
+  - {fileID: 1169335157}

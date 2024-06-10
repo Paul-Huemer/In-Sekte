@@ -26,6 +26,10 @@ public ParticleSystem CiggySmoke;
 
 public Boolean isFresh = true;
 
+public AudioSource BurningSound;
+
+public AudioSource IgniteSound;
+
 
 
 
@@ -50,6 +54,8 @@ void Update()
     if (isFresh)
     {
         // burnMask.SetActive(true);
+        IgniteSound.Play();
+        BurningSound.Play();
         cigarette.GetComponent<Animator>().enabled = true;
         burnSprite.GetComponent<SpriteRenderer>().enabled = true;
         CiggySmoke.Play();
@@ -75,6 +81,8 @@ void Update()
             isBurned = true;
             BurnParticle.Stop();
             CiggySmoke.Stop();
+            BurningSound.Stop();
+            IgniteSound.Play();
 
             IgniteParticle.Play();
             // disable the burn sprite totally
