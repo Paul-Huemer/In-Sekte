@@ -41,20 +41,25 @@ public class creatureGoal : MonoBehaviour
 
                 collision.gameObject.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureWinSounds[Random.Range(0, creatureWinSounds.Length)]);
                 creatureCount += 1;
+                collision.gameObject.GetComponent<Creature>().isInvincible = true;
+                StartCoroutine(DestroyCreature(collision.gameObject));
+
+            // Decrement maxCreatureCount in the CreatureSpawner object
+                creatureSpawner.maxCreatureCount -= 1;
+
             }
 
             
-            collision.gameObject.GetComponent<Creature>().isInvincible = true;
-            StartCoroutine(DestroyCreature(collision.gameObject));
-
-            // Decrement maxCreatureCount in the CreatureSpawner object
-            creatureSpawner.maxCreatureCount -= 1;
+            
+            
         }
 
-        if (creatureCount == minCreaturesToWin)
+        if (creatureCount >= minCreaturesToWin)
         {
             print("Switching Scene to  " + sceneBuildIndex);
             winningText.SetActive(true);
+            // SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single); // Loads scene specified with sceneBuildIndex
+
             Invoke("LoadMyLevel", 2);
         }
     }
