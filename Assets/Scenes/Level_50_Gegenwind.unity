@@ -714,7 +714,7 @@ MonoBehaviour:
   quitKey: 27
   nextLevelKey: 110
   destroyWebCamTexture: 100
-  webCamTextureObject: {fileID: 0}
+  webcamTexture: {fileID: 0}
 --- !u!1 &331039869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1359,12 @@ MonoBehaviour:
   killTime: 1
   instantKill: 1
   deathParticles: 1
+  isWater: 0
+  isFire: 0
+  isSpike: 0
+  DeathObjectAudioSource: {fileID: 0}
+  creatureImpaleSounds: []
+  burnSound: {fileID: 0}
 --- !u!212 &695867443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9413,7 +9419,7 @@ Transform:
   m_GameObject: {fileID: 1939075414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.8384266, w: 0.5450146}
-  m_LocalPosition: {x: 1000.1, y: 553, z: -10}
+  m_LocalPosition: {x: 991.25, y: 550.68, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
