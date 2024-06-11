@@ -1931,6 +1931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Surface: {fileID: 867127471}
+  customCameraIndex: 0
   ImageFlip: -1
   Threshold: 96.4
   ShowProcessingImage: 1

@@ -85,8 +85,6 @@ void Update()
             IgniteSound.Play();
 
             IgniteParticle.Play();
-            // disable the burn sprite totally
-            //  burnsprite to get to size 0 within 0.2 seconds
             StartCoroutine(ShrinkBurnSprite());
             
 
@@ -109,7 +107,6 @@ void Update()
         elapsed += Time.deltaTime; // update the elapsed time
         float t = elapsed / duration; // calculate the progress
 
-        // linearly interpolate the scale from the initial scale to 0
         burnSprite.transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, t);
 
         yield return null; // wait for the next frame

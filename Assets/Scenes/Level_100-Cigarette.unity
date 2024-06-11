@@ -2278,6 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Surface: {fileID: 867127471}
+  customCameraIndex: 1
   ImageFlip: -1
   Threshold: 96.4
   ShowProcessingImage: 1
@@ -3054,6 +3055,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cigarette Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345075589011155407, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_Mass
+      value: 106.85277
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345075589011155407, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345075589011155407, guid: 8319263451f6276438672632b7e45496,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

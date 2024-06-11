@@ -60,12 +60,10 @@ public class Creature : MonoBehaviour
         if (isInvincible || isBasicallyDead) {
             return;
         } else {
-            // play a sound effect 25% of the time
-            if (Random.Range(0, 4) == 0)
-            {
+            // play a sound effect 10% of the time
+            if (Random.Range(0, 10) == 0) {
                 creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
             }
-        // creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
         }
 
 

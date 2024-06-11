@@ -18,12 +18,17 @@ public class KinectContourFinder : WebCamera
     private Point[][] contours;
     private HierarchyIndex[] hierarchy;
     private Vector2[] vectorList;
+
+// automatically set it to that value in every instance of the class
+    [SerializeField]
+
     
     //Cool processing stuff!
 
     void Start()
     {
         WebCamDevice[] devices = WebCamTexture.devices;
+
     }
     protected override bool ProcessTexture(WebCamTexture input, ref Texture2D output)
     {
