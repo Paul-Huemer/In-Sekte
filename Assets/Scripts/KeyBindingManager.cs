@@ -14,12 +14,12 @@ public class KeyBindingManager : MonoBehaviour
     public KeyCode nextLevelKey = KeyCode.N;
 
     public KeyCode destroyWebCamTexture = KeyCode.D;
-    public GameObject webCamTextureObject;
+    public GameObject webcamTexture;
 
     void Start()
     {
         // Find the web cam texture object in the scene
-        webCamTextureObject = GameObject.Find("RawImage");
+        webcamTexture = GameObject.Find("RawImage");
     }
 
 
@@ -32,7 +32,9 @@ public class KeyBindingManager : MonoBehaviour
         {
             print("Reloading the scene");
             // Reload the current scene
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            Invoke("DestroyWebCamTexture", 0.8f);
+            Invoke("ReloadScene", 1.0f);
+
         }
 
         // Quit the game
@@ -45,31 +47,45 @@ public class KeyBindingManager : MonoBehaviour
         // Skip to the next level
         if (Input.GetKeyDown(nextLevelKey))
         {
+            // kill 
             // Load the next scene
             print("Loading next scene");
-            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1 < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
-            } else
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-            }
+        
+            // wait 2 seconds before loading the next scene
+            Invoke("DestroyWebCamTexture", 1.8f);
+            Invoke("LoadNextScene", 2.0f);
             
         }
 
-        if (Input.GetKeyDown(destroyWebCamTexture))
+        
+
+        
+    }
+
+    void DestroyWebCamTexture()
+    {
+        Destroy(webcamTexture);
+    }
+
+    void ReloadScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+
+    
+
+    // Load the next scene
+    void LoadNextScene()
+    {
+        // if it is the last level then load the first level
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings - 1)
         {
-            // Destroy the web cam texture object
-            Destroy(webCamTextureObject);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
-
-        // re enable the web cam texture object
-        if (Input.GetKeyDown(KeyCode.E))
+        else
         {
-            // Find the web cam texture object in the scene
-            webCamTextureObject = GameObject.Find("RawImage");
-            webCamTextureObject.SetActive(true);
-
+            // Load the next scene
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
