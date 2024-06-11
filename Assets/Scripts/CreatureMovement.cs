@@ -20,6 +20,7 @@ public class Creature : MonoBehaviour
 
     private Vector3 originalScale; // The original scale of the creature
     public ParticleSystem deathParticles;
+    public bool playedDeathParticles = false;
     // public AudioClip deathSound;
     public AudioSource creatureAudioSource;
 
@@ -43,25 +44,39 @@ public class Creature : MonoBehaviour
         ShiluetteCollider = GameObject.Find("ShiluetteCollider");
 
         jumpForce = Random.Range(7, 15);
-    
+
         speed = Random.Range(2, 4);
 
         creatureSounds = Resources.LoadAll<AudioClip>("CreatureNoisesV2");
     }
 
-    void Update()
+    void FixedUpdate()
+    {
+        MoveTowardsGoal();
+    }
+
+    void MoveTowardsGoal()
     {
         Vector3 direction = (Goal.transform.position - transform.position).normalized;
         GetComponent<Rigidbody2D>().AddForce(direction * speed);
     }
+
+    // {
+    //     Vector3 direction = (Goal.transform.position - transform.position).normalized;
+    //     GetComponent<Rigidbody2D>().AddForce(direction * speed);
+    // }
     void OnCollisionEnter2D(Collision2D collision)
     {
         // play a random creature sound
-        if (isInvincible || isBasicallyDead) {
+        if (isInvincible || isBasicallyDead)
+        {
             return;
-        } else {
+        }
+        else
+        {
             // play a sound effect 10% of the time
-            if (Random.Range(0, 10) == 0) {
+            if (Random.Range(0, 10) == 0)
+            {
                 creatureAudioSource.PlayOneShot(creatureSounds[Random.Range(0, creatureSounds.Length)]);
             }
         }
@@ -71,17 +86,24 @@ public class Creature : MonoBehaviour
         // only gameobjects without the CreatureMove script are considered the floor
         if (!collision.gameObject.GetComponent<Creature>() && collision.gameObject != ShiluetteCollider)
         {
-            // if angle is less than 45 degrees
-            if (collision.contacts[0].normal.y > Mathf.Sin(steepestAngle * Mathf.Deg2Rad))
-            {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                StartCoroutine(RegularSquashAndStretch());
-            }
-            else
-            {
 
+            if (!collision.gameObject.GetComponent<Slippery>())
+            {
+                if (collision.contacts[0].normal.y > Mathf.Sin(steepestAngle * Mathf.Deg2Rad))
+                {
+
+
+                    GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    StartCoroutine(RegularSquashAndStretch());
+                }
+                else
+                {
+                    Debug.Log("Creature hit a slippery surface");
+                }
             }
-        } else if (collision.gameObject == ShiluetteCollider)
+
+        }
+        else if (collision.gameObject == ShiluetteCollider)
         {
             // check if angle is less than 45 degrees
             Vector3 normal = collision.contacts[0].normal;
@@ -102,87 +124,100 @@ public class Creature : MonoBehaviour
 
 
     }
-    IEnumerator SmallSquashAndStretch() {
-        if (isInvincible || isBasicallyDead) {
-            yield break;
-        } else {
-        Vector3 originalScale = transform.localScale;
-        originalScale.x = originalScale.z;
-        originalScale.y = originalScale.z;
-
-        Vector3 squashedScale = new Vector3(originalScale.x * 0.9f, originalScale.y * 1.1f, originalScale.z);
-        float duration = 0.1f;
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
+    IEnumerator SmallSquashAndStretch()
+    {
+        if (isInvincible || isBasicallyDead)
         {
-            float progress = t / duration;
-            transform.localScale = Vector3.Lerp(originalScale, squashedScale, progress);
-            yield return null;
-        }
-
-        transform.localScale = squashedScale;
-
-        yield return new WaitForSeconds(0.4f);
-
-        if (isInvincible || isBasicallyDead) {
             yield break;
-        } else {
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float progress = t / duration;
-            transform.localScale = Vector3.Lerp(squashedScale, originalScale, progress);
-            yield return null;
         }
+        else
+        {
+            Vector3 originalScale = transform.localScale;
+            originalScale.x = originalScale.z;
+            originalScale.y = originalScale.z;
 
-        transform.localScale = originalScale;
-         }
+            Vector3 squashedScale = new Vector3(originalScale.x * 0.9f, originalScale.y * 1.1f, originalScale.z);
+            float duration = 0.1f;
+
+            for (float t = 0; t < duration; t += Time.deltaTime)
+            {
+                float progress = t / duration;
+                transform.localScale = Vector3.Lerp(originalScale, squashedScale, progress);
+                yield return null;
+            }
+
+            transform.localScale = squashedScale;
+
+            yield return new WaitForSeconds(0.4f);
+
+            if (isInvincible || isBasicallyDead)
+            {
+                yield break;
+            }
+            else
+            {
+
+                for (float t = 0; t < duration; t += Time.deltaTime)
+                {
+                    float progress = t / duration;
+                    transform.localScale = Vector3.Lerp(squashedScale, originalScale, progress);
+                    yield return null;
+                }
+
+                transform.localScale = originalScale;
+            }
         }
 
     }
 
     IEnumerator RegularSquashAndStretch()
     {
-        if (isInvincible || isBasicallyDead) {
-            yield break;
-        } else {
-        Vector3 originalScale = transform.localScale;
-        originalScale.x = originalScale.z;
-        originalScale.y = originalScale.z;
-
-        Vector3 squashedScale = new Vector3(originalScale.x * 0.8f, originalScale.y * 1.2f, originalScale.z);
-        float duration = 0.2f;
-
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
+        if (isInvincible || isBasicallyDead)
         {
-            float progress = t / duration;
-            transform.localScale = Vector3.Lerp(originalScale, squashedScale, progress);
-            yield return null;
-        }
-
-
-        transform.localScale = squashedScale;
-
-
-        yield return new WaitForSeconds(0.2f);
-
-        if (isInvincible || isBasicallyDead) {
             yield break;
-        } else {
+        }
+        else
+        {
+            Vector3 originalScale = transform.localScale;
+            originalScale.x = originalScale.z;
+            originalScale.y = originalScale.z;
+
+            Vector3 squashedScale = new Vector3(originalScale.x * 0.8f, originalScale.y * 1.2f, originalScale.z);
+            float duration = 0.2f;
+
+
             for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float progress = t / duration;
-            transform.localScale = Vector3.Lerp(squashedScale, originalScale, progress);
-            yield return null;
+            {
+                float progress = t / duration;
+                transform.localScale = Vector3.Lerp(originalScale, squashedScale, progress);
+                yield return null;
+            }
+
+
+            transform.localScale = squashedScale;
+
+
+            yield return new WaitForSeconds(0.2f);
+
+            if (isInvincible || isBasicallyDead)
+            {
+                yield break;
+            }
+            else
+            {
+                for (float t = 0; t < duration; t += Time.deltaTime)
+                {
+                    float progress = t / duration;
+                    transform.localScale = Vector3.Lerp(squashedScale, originalScale, progress);
+                    yield return null;
+                }
+
+                transform.localScale = originalScale;
+            }
+
+
+
         }
-
-        transform.localScale = originalScale;
-        }
-
-
-        
-    }
     }
 
 }

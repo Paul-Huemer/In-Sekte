@@ -333,6 +333,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 91076026}
     m_Modifications:
+    - target: {fileID: 1639166498186611367, guid: da553c75be8af9f429469825df533c26,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3078394147091925540, guid: da553c75be8af9f429469825df533c26,
         type: 3}
       propertyPath: m_SortingOrder
@@ -670,6 +675,9 @@ Transform:
   - {fileID: 1451451645}
   - {fileID: 996629119}
   - {fileID: 1647716646}
+  - {fileID: 172631316}
+  - {fileID: 431609394}
+  - {fileID: 2092544220}
   - {fileID: 1664403408}
   - {fileID: 73957263}
   - {fileID: 2137858591}
@@ -696,6 +704,85 @@ Transform:
   - {fileID: 999636269}
   m_Father: {fileID: 1778542132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &143283831
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 91076026}
+    m_Modifications:
+    - target: {fileID: 1794294875353317137, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_Name
+      value: gsp-asset-wood (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.22998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.34825715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817685509221816941, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be173f60fdb99fa48811faab65f10a5f, type: 3}
+--- !u!4 &172631316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1535920307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &182341360
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gsp-asset-spike_red_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
@@ -1410,6 +1502,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7019809652816182975, guid: 96e0fb292a6228b48b79ca80c243d176,
     type: 3}
   m_PrefabInstance: {fileID: 691622770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &431609394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 787149247}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &441048471
 PrefabInstance:
@@ -2603,7 +2701,7 @@ PrefabInstance:
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.309998
+      value: 49.7
       objectReference: {fileID: 0}
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
@@ -2743,6 +2841,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06d0570209204cd4b9c5335bd968df1e, type: 3}
+--- !u!1001 &787149247
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 91076026}
+    m_Modifications:
+    - target: {fileID: 1794294875353317137, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_Name
+      value: gsp-asset-wood (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.22998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 38.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.34825715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817685509221816941, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be173f60fdb99fa48811faab65f10a5f, type: 3}
 --- !u!1001 &791670742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2918,6 +3089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gsp-asset-spike_red_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837126366540319073, guid: cac0b8044952add43a28a98e60a2bc3d,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4560,6 +4736,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 5818476330784316106, guid: 6c441086f73d74943af2ed45adea458a,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6274618442669802494, guid: 6c441086f73d74943af2ed45adea458a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4859,6 +5040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410372201233889105, guid: 11cc29f5aa367964fabfef03e0f26ba4,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2673139301786783607, guid: 11cc29f5aa367964fabfef03e0f26ba4,
         type: 3}
@@ -5409,6 +5595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5837126366540319073, guid: cac0b8044952add43a28a98e60a2bc3d,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5884,6 +6075,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 91076026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1535920307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 91076026}
+    m_Modifications:
+    - target: {fileID: 1794294875353317137, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_Name
+      value: gsp-asset-wood (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.22998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.34825715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817685509221816941, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be173f60fdb99fa48811faab65f10a5f, type: 3}
 --- !u!1 &1543266608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,6 +7126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -6969,7 +7238,7 @@ PrefabInstance:
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.919983
+      value: 50.309998
       objectReference: {fileID: 0}
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
@@ -7281,7 +7550,7 @@ MonoBehaviour:
   maxCreatureCount: 10
   SpawnPoint: {fileID: 1858462666}
   spawnRadius: 5
-  spawnInterval: 0.2
+  spawnInterval: 0.4
   creatures:
   - {fileID: 0}
   - {fileID: 0}
@@ -7355,7 +7624,7 @@ Transform:
   m_GameObject: {fileID: 1858462666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 901.68, y: 561.93, z: 0}
+  m_LocalPosition: {x: 901.68, y: 568.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7585,6 +7854,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2410372201233889105, guid: 11cc29f5aa367964fabfef03e0f26ba4,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2673139301786783607, guid: 11cc29f5aa367964fabfef03e0f26ba4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7745,6 +8019,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2039081605}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2092544220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5643125108965464796, guid: be173f60fdb99fa48811faab65f10a5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 143283831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2097828434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1836189266418896681, guid: e9f31e07925b0a94cbc72f03852bf1a7,
@@ -7777,6 +8057,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 91076026}
     m_Modifications:
+    - target: {fileID: 1639166498186611367, guid: da553c75be8af9f429469825df533c26,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3078394147091925540, guid: da553c75be8af9f429469825df533c26,
         type: 3}
       propertyPath: m_SortingOrder
@@ -8066,6 +8351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_03
       objectReference: {fileID: 0}
+    - target: {fileID: 5837126366540319073, guid: cac0b8044952add43a28a98e60a2bc3d,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8149,6 +8439,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 5818476330784316106, guid: 6c441086f73d74943af2ed45adea458a,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6274618442669802494, guid: 6c441086f73d74943af2ed45adea458a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -8171,6 +8466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gsp-asset-spike_red_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
@@ -8259,6 +8559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410372201233889105, guid: 11cc29f5aa367964fabfef03e0f26ba4,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2673139301786783607, guid: 11cc29f5aa367964fabfef03e0f26ba4,
         type: 3}

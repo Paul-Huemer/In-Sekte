@@ -84,8 +84,12 @@ public class CreatureKiller : MonoBehaviour
         // creatureToKill.GetComponent<Creature>().creatureAudioSource.PlayOneShot(creatureToKill.GetComponent<Creature>().deathSound);
         
         if(deathParticles) {
-            
-            creatureToKill.GetComponent<Creature>().deathParticles.Play();
+            if(creatureToKill.GetComponent<Creature>().playedDeathParticles == false)
+            {
+                creatureToKill.GetComponent<Creature>().deathParticles.Play();
+                creatureToKill.GetComponent<Creature>().playedDeathParticles = true;
+            }
+            // creatureToKill.GetComponent<Creature>().deathParticles.Play();
         }
 
 

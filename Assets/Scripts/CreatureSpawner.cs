@@ -37,6 +37,15 @@ public class CreatureSpawner : MonoBehaviour
         }
     }
 
+    void OnDrawGizmos()
+    {
+        if (showGizmos)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(SpawnPoint.transform.position, spawnRadius);
+        }
+    }
+
     void SpawnCreature()
     {
         Vector3 spawnPosition = SpawnPoint.transform.position + Random.insideUnitSphere * spawnRadius;

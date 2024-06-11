@@ -253,6 +253,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1778542132}
     m_Modifications:
+    - target: {fileID: 145944763183357128, guid: be173f60fdb99fa48811faab65f10a5f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.81
+      objectReference: {fileID: 0}
     - target: {fileID: 1794294875353317137, guid: be173f60fdb99fa48811faab65f10a5f,
         type: 3}
       propertyPath: m_Name
@@ -1035,6 +1040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5837126366540319073, guid: cac0b8044952add43a28a98e60a2bc3d,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1508,7 +1518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTimeInDanger: 2
-  killTime: 2
+  killTime: 0.2
   instantKill: 0
   deathParticles: 1
 --- !u!1001 &653960718
@@ -2008,7 +2018,7 @@ PrefabInstance:
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.63086
+      value: 48.71
       objectReference: {fileID: 0}
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
@@ -2704,6 +2714,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2965,6 +2980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3155,6 +3175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gsp-asset-spike_red_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
@@ -4365,6 +4390,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5837126366540319073, guid: cac0b8044952add43a28a98e60a2bc3d,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4406,7 +4436,7 @@ PrefabInstance:
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.570984
+      value: -70.52
       objectReference: {fileID: 0}
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
@@ -4796,7 +4826,7 @@ PrefabInstance:
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.17102
+      value: -37.66
       objectReference: {fileID: 0}
     - target: {fileID: 8950982114165466638, guid: 363e9e90df3d0c2479685c58978af707,
         type: 3}
@@ -5242,8 +5272,8 @@ MonoBehaviour:
     type: 3}
   maxCreatureCount: 10
   SpawnPoint: {fileID: 1858462666}
-  spawnRadius: 5
-  spawnInterval: 0.2
+  spawnRadius: 3.79
+  spawnInterval: 0.4
   creatures:
   - {fileID: 0}
   - {fileID: 0}
@@ -5317,7 +5347,7 @@ Transform:
   m_GameObject: {fileID: 1858462666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 898.7, y: 561.2, z: 0}
+  m_LocalPosition: {x: 899.84, y: 568.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5510,6 +5540,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gsp-asset-spike_red_02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5123444017626845378, guid: 990b317ce061414499c8629d478ab913,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5815241754817530371, guid: 990b317ce061414499c8629d478ab913,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5685,6 +5720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gsp-asset-spike_red_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837126366540319073, guid: cac0b8044952add43a28a98e60a2bc3d,
+        type: 3}
+      propertyPath: killTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTimeInDanger: 2
-  killTime: 2
+  killTime: 0.2
   instantKill: 1
   deathParticles: 1
