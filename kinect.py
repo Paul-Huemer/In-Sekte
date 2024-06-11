@@ -46,12 +46,22 @@ while True:
         frame = np.where((frame > min_depth) & (frame < max_depth), 255, 0).astype(np.uint8) 
 
         frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
-        # frame = 255 - frame
+        # make every black pixel 70 33 29
+        frame[np.where((frame == [0,0,0]).all(axis = 2))] = [70, 33, 29]
+        # if no kinect feed is available, show a black [70, 33, 29] screen
+    else:
+        frame = np.zeros((424, 512, 3), np.uint8)
+        frame[:] = [0, 0, 0]
+        # add text to the frame "No Kinect feed available"
+        cv2.putText(frame, 'No Kinect feed available', (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
-        # # and now every white pixel green
-        # frame[frame[:, :, 0] == 255] = [0, 255, 0]
-        # frame[frame[:, :, 1] == 255] = [0, 255, 0]
-        # frame[frame[:, :, 2] == 255] = [0, 255, 0]
+        frame = cv2.flip(frame, 0)
+        frame = cv2.flip(frame, 1)
+
+
+
+        
+
 
 
 
