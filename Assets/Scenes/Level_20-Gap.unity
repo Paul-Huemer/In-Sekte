@@ -335,7 +335,6 @@ GameObject:
   - component: {fileID: 182341363}
   - component: {fileID: 182341362}
   - component: {fileID: 182341361}
-  - component: {fileID: 182341367}
   - component: {fileID: 182341366}
   - component: {fileID: 182341365}
   m_Layer: 5
@@ -344,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &182341361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,18 +468,6 @@ MonoBehaviour:
   ShiluetteCollider: {fileID: 0}
   waterCollisionSounds: []
   waveAudioSource: {fileID: 0}
---- !u!114 &182341367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182341360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c146fc42453116749b01e52197f41e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &245296856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &867127472
 RectTransform:
   m_ObjectHideFlags: 0

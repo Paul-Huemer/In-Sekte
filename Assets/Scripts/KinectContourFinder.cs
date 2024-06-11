@@ -27,6 +27,7 @@ public class KinectContourFinder : WebCamera
 
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         WebCamDevice[] devices = WebCamTexture.devices;
 
     }
