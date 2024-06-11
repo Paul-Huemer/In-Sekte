@@ -34,8 +34,8 @@ public class Creature : MonoBehaviour
 
     void Start()
     {
-        float startSize = Random.Range(2, 6);
-        startSize = startSize / 3;
+        float startSize = Random.Range(2, 5);
+        startSize = startSize / 4;
         transform.localScale = new Vector3(startSize, startSize, startSize);
         originalScale = transform.localScale;
 
@@ -98,7 +98,7 @@ public class Creature : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Creature hit a slippery surface");
+                    // Debug.Log("Creature hit a slippery surface");
                 }
             }
 

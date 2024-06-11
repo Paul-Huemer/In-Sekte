@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 89506547}
   - component: {fileID: 89506546}
   - component: {fileID: 89506548}
+  - component: {fileID: 89506549}
   m_Layer: 0
   m_Name: ShiluetteCollider
   m_TagString: Untagged
@@ -239,6 +240,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+--- !u!114 &89506549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89506545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb40eb451dc4144b91a969722277ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &90370293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,6 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 212870168}
   - component: {fileID: 212870167}
+  - component: {fileID: 212870169}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -698,6 +712,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212870169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212870166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb40eb451dc4144b91a969722277ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &245296856
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +846,7 @@ GameObject:
   - component: {fileID: 324717520}
   - component: {fileID: 324717519}
   - component: {fileID: 324717521}
+  - component: {fileID: 324717522}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -956,6 +983,21 @@ MonoBehaviour:
   creatureGoal: {fileID: 0}
   maxCreatureCount: 0
   creatureInGoal: 0
+--- !u!114 &324717522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324717518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf8c637a6f913c4099ee712f4623a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadKey: 114
+  quitKey: 27
+  nextLevelKey: 110
 --- !u!1001 &347801567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3733,8 +3775,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282466625
+  m_fontColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

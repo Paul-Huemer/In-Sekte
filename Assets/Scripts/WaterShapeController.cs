@@ -33,6 +33,10 @@ public class WaterShapeController : MonoBehaviour
     // How much to spread to the other springs
     public float spread = 0.006f;
 
+    public float floatForce = 10f;
+
+    public float buoyancyStrength = 1.0f;
+
 
 //     void OnValidate()
 // {
@@ -187,27 +191,20 @@ void Start() {
 
     private void OnTriggerStay2D(Collider2D collision)
 {
-    if (collision.gameObject.GetComponent<BuoyantObject>())
+    BuoyantObject buoyantObject = collision.GetComponent<BuoyantObject>();
+    if (buoyantObject != null) // If the object has a BuoyantObject component
     {
-        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+        if (rb != null) // If the object has a Rigidbody2D component
+        {
+            float liftForce = -Physics2D.gravity.y * buoyantObject.buoyancyStrength; // Calculate the lift force
+            rb.AddForce(new Vector2(0, liftForce), ForceMode2D.Force); // Apply the lift force
 
-        // Calculate the depth of the object in the water
-        float waterLevel = transform.position.y + GetComponent<Collider2D>().bounds.extents.y;
-        float objectBottom = collision.transform.position.y - collision.bounds.extents.y;
-        float depth = Mathf.Clamp(waterLevel - objectBottom, 0, Mathf.Infinity);
-
-        // Apply an upward force proportional to the depth of the object in the water
-        float buoyancyForce = depth * 10f;
-        rb.AddForce(Vector2.up * buoyancyForce, ForceMode2D.Force);
-
-        // Apply a damping force to simulate water resistance
-        float dampingForce = rb.velocity.y * 2f;
-        rb.AddForce(Vector2.down * dampingForce, ForceMode2D.Force);
-
-        // Apply a torque to make the object rotate towards the upright position
-        float rotationDifference = 0 - rb.rotation;
-        float torque = rotationDifference * 2f;
-        rb.AddTorque(torque);
+            // Add realistic rotation
+            float rotationDifference = 0 - rb.rotation;
+            float torque = rotationDifference * 15f; // Adjust this value to change the rotation strength
+            rb.AddTorque(torque);
+        }
     }
 }
 

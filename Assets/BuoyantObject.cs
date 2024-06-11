@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuoyantObject : MonoBehaviour
 {
+
+    public float buoyancyStrength = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
