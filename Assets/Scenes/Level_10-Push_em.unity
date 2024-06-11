@@ -207,8 +207,8 @@ Transform:
   m_GameObject: {fileID: 89506545}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 910, y: 560, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: 893, y: 557, z: 0}
+  m_LocalScale: {x: 0.21, y: 0.21, z: 0.21}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -998,6 +998,8 @@ MonoBehaviour:
   reloadKey: 114
   quitKey: 27
   nextLevelKey: 110
+  reloadCanvasKey: 99
+  canvas: {fileID: 0}
 --- !u!1001 &347801567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2018,7 +2020,7 @@ RectTransform:
   m_GameObject: {fileID: 867127471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 2.6, y: 2.6, z: 2.6}
+  m_LocalScale: {x: 3.8, y: 3.8, z: 3.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 182341364}
@@ -2041,12 +2043,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Surface: {fileID: 867127471}
-  ImageFlip: -1
+  ImageFlip: 0
   Threshold: 96.4
   ShowProcessingImage: 1
   CurveAccuracy: 20
   MinArea: 500
   PolygonCollider: {fileID: 89506546}
+  reloadKey: 98
+  canvasObject: {fileID: 182341360}
 --- !u!114 &867127474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,7 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7254902, g: 0.87058824, b: 0.8862745, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
