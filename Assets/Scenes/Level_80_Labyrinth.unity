@@ -318,7 +318,7 @@ PrefabInstance:
     - target: {fileID: 2196509959069113925, guid: 3d9af8c404c6ef64a904b61f4282250f,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7487629813468376024, guid: 3d9af8c404c6ef64a904b61f4282250f,
         type: 3}
@@ -675,7 +675,7 @@ MonoBehaviour:
   quitKey: 27
   nextLevelKey: 110
   destroyWebCamTexture: 100
-  webCamTextureObject: {fileID: 0}
+  webcamTexture: {fileID: 0}
 --- !u!1001 &347801567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1651,6 +1651,12 @@ MonoBehaviour:
   killTime: 1
   instantKill: 1
   deathParticles: 0
+  isWater: 0
+  isFire: 0
+  isSpike: 0
+  DeathObjectAudioSource: {fileID: 0}
+  creatureImpaleSounds: []
+  burnSound: {fileID: 0}
 --- !u!212 &696693698
 SpriteRenderer:
   m_ObjectHideFlags: 0
