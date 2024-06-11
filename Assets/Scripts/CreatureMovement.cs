@@ -30,6 +30,8 @@ public class Creature : MonoBehaviour
 
     // sound effect for creature
     public AudioClip[] creatureSounds;
+    public AudioClip[] creatureImpaleSounds;
+    
 
 
     void Start()

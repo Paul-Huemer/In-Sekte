@@ -31,12 +31,12 @@ public class RainParticleCounter : MonoBehaviour
     {
         if (other.name == "Rain")
         {
-            rainParticleCount += 1;
+            rainParticleCount += 3;
             Debug.Log("Rain particle count: " + rainParticleCount);
 
             if (isWaterRaising && WaterPrefab.transform.position.y < maxHeight)
             {
-                WaterPrefab.transform.position = new Vector3(WaterPrefab.transform.position.x, WaterPrefab.transform.position.y + 0.01f, WaterPrefab.transform.position.z);
+                WaterPrefab.transform.position = new Vector3(WaterPrefab.transform.position.x, WaterPrefab.transform.position.y + 0.02f, WaterPrefab.transform.position.z);
             }
 
             timeSinceLastRaindrop = 0f;

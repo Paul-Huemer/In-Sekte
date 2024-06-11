@@ -11,6 +11,8 @@ public class creatureGoal : MonoBehaviour
     public AudioClip[] creatureWinSounds;
     public ParticleSystem winParticles;
 
+    public GameObject webcamTexture;
+
     [SerializeField] public int minCreaturesToWin = 1; // Min Färglets to reach goal for the next scene to load
     [SerializeField] public int sceneBuildIndex = 1; // Scene Index you can look that up in the build menu
     [SerializeField] public GameObject winningText; // WinnignText Object inside the scene that has to be activated
@@ -23,8 +25,15 @@ public class creatureGoal : MonoBehaviour
         maxCreatureCount = creatureSpawner.maxCreatureCount;
         winningText.SetActive(false);
 
+        webcamTexture = GameObject.Find("RawImage");
 
 
+
+    }
+
+    private void DestroyWebCamTexture()
+    {
+        Destroy(webcamTexture);
     }
 
 
@@ -62,7 +71,7 @@ public class creatureGoal : MonoBehaviour
             print("Switching Scene to  " + sceneBuildIndex);
             winningText.SetActive(true);
             // SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single); // Loads scene specified with sceneBuildIndex
-
+            Invoke("DestroyWebCamTexture", 1.8f);
             Invoke("LoadMyLevel", 2);
         }
     }

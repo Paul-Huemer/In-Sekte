@@ -13,6 +13,15 @@ public class KeyBindingManager : MonoBehaviour
     // Skip to the next level with the N key
     public KeyCode nextLevelKey = KeyCode.N;
 
+    public KeyCode destroyWebCamTexture = KeyCode.D;
+    public GameObject webCamTextureObject;
+
+    void Start()
+    {
+        // Find the web cam texture object in the scene
+        webCamTextureObject = GameObject.Find("RawImage");
+    }
+
 
 
     // Update is called once per frame
@@ -46,6 +55,21 @@ public class KeyBindingManager : MonoBehaviour
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
             }
             
+        }
+
+        if (Input.GetKeyDown(destroyWebCamTexture))
+        {
+            // Destroy the web cam texture object
+            Destroy(webCamTextureObject);
+        }
+
+        // re enable the web cam texture object
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Find the web cam texture object in the scene
+            webCamTextureObject = GameObject.Find("RawImage");
+            webCamTextureObject.SetActive(true);
+
         }
     }
 

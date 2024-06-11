@@ -11,9 +11,29 @@ public class CreatureKiller : MonoBehaviour
 
     public bool deathParticles = true;
 
+    public bool isWater = false;
+    public bool isFire = false;
+    public bool isSpike = false;
+
+    public AudioSource DeathObjectAudioSource;
+
+    public AudioClip[] creatureImpaleSounds;
+    public AudioClip burnSound;
+
     void Start()
     {
+        // CreatureDeaths/Spikes
+        creatureImpaleSounds = Resources.LoadAll<AudioClip>("CreatureSpikeDeath");
+        burnSound = Resources.Load<AudioClip>("CreatureFireDeath");
+        print("The number of impale sounds is: " + creatureImpaleSounds.Length);
+        // Get audioSource from own object if it exists
+        if (GetComponent<AudioSource>())
+        {
+            DeathObjectAudioSource = GetComponent<AudioSource>();
+        }
 
+
+        
     }
 
     // Update is called once per frame
@@ -88,6 +108,15 @@ public class CreatureKiller : MonoBehaviour
             {
                 creatureToKill.GetComponent<Creature>().deathParticles.Play();
                 creatureToKill.GetComponent<Creature>().playedDeathParticles = true;
+                if(isFire) {
+                    // play random fire sound
+                    DeathObjectAudioSource.PlayOneShot(burnSound);
+
+                }
+                if(isSpike) {
+                    // play random impale sound
+                    DeathObjectAudioSource.PlayOneShot(creatureImpaleSounds[Random.Range(0, creatureImpaleSounds.Length)]);
+                }
             }
             // creatureToKill.GetComponent<Creature>().deathParticles.Play();
         }

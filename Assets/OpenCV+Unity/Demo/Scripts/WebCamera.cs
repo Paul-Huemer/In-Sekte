@@ -156,6 +156,16 @@ namespace OpenCvSharp.Demo
 			}
 		}
 
+		private void DestroyWebCamTexture()
+		{
+			if (webCamTexture != null)
+			{
+				webCamTexture.Stop();
+				Destroy(webCamTexture);
+				webCamTexture = null;
+			}
+		}
+
 
 		/// <summary>
 		/// Processes current texture
