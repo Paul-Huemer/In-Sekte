@@ -26,9 +26,9 @@ public class ContourFinder : WebCamera
         
         Cv2.Flip(image, image, ImageFlip); // Flip the image
         Cv2.CvtColor(image, processImage, ColorConversionCodes.BGR2GRAY); // Convert the image to grayscale
-        Cv2.Threshold(processImage, processImage, Threshold, 255, ThresholdTypes.BinaryInv); // Put a threshold on the image
+        // Cv2.Threshold(processImage, processImage, Threshold, 255, ThresholdTypes.BinaryInv); // Put a threshold on the image
         Cv2.FindContours(processImage, out contours, out hierarchy, RetrievalModes.Tree, ContourApproximationModes.ApproxSimple, null); // Find contours from the grayscale image
-        
+    
         PolygonCollider.pathCount = 0; // Remove all colliders stored in the component
         foreach (Point[] contour in contours)
         {
@@ -45,13 +45,27 @@ public class ContourFinder : WebCamera
         }
             
         if (output == null)
+{
+    output = OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image);
+} 
+else
+{
+    // convert black pixels to green
+    for (int i = 0; i < image.Rows; i++)
+    {
+        for (int j = 0; j < image.Cols; j++)
         {
-            output = OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image );
-        } else
-        {
-            OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image, output);
+            Vec3b color = image.At<Vec3b>(i, j);
+            if (color.Item0 == 0 && color.Item1 == 0 && color.Item2 == 0) // if pixel is black
+            {
+                color.Item1 = 255; // change green channel to maximum
+                image.Set(i, j, color);
+            }
         }
-        return true;
+    }
+    OpenCvSharp.Unity.MatToTexture(ShowProcessingImage ? processImage : image, output);
+}
+return true;
     }
     /**
      * toVector2[]
@@ -79,4 +93,25 @@ public class ContourFinder : WebCamera
         }
         Cv2.Line(Image, Points[Points.Length-1], Points[0], Color, Thickness);
     }
+
+
+    private void ChangeBlackToGreen(Mat image)
+{
+    for (int i = 0; i < image.Rows; i++)
+    {
+        for (int j = 0; j < image.Cols; j++)
+        {
+            Vec3b color = image.At<Vec3b>(i, j);
+
+            // Check if the pixel is black
+            if (color.Item0 == 0 && color.Item1 == 0 && color.Item2 == 0)
+            {
+                // Change it to green
+                image.Set(i, j, new Vec3b(0, 255, 0));
+            }
+        }
+    }
+}
+
+
 }

@@ -23,6 +23,8 @@ namespace OpenCvSharp.Demo
 		private WebCamTexture webCamTexture = null;
 		private Texture2D renderedTexture = null;
 
+
+
 		/// <summary>
 		/// A kind of workaround for macOS issue: MacBook doesn't state it's webcam as frontal
 		/// </summary>
@@ -62,7 +64,11 @@ namespace OpenCvSharp.Demo
 				// set device up
 				if (-1 != cameraIndex)
 				{
-					cameraIndex = 0;
+					// camera index is the final number of device
+					cameraIndex = Array.IndexOf(WebCamTexture.devices, WebCamTexture.devices[cameraIndex]);
+					// but if not working set it here!!!
+					// cameraIndex = 1;
+
 					webCamDevice = WebCamTexture.devices[cameraIndex];
 					webCamTexture = new WebCamTexture(webCamDevice.Value.name);
 
@@ -149,6 +155,17 @@ namespace OpenCvSharp.Demo
 				}
 			}
 		}
+
+		private void DestroyWebCamTexture()
+		{
+			if (webCamTexture != null)
+			{
+				webCamTexture.Stop();
+				Destroy(webCamTexture);
+				webCamTexture = null;
+			}
+		}
+
 
 		/// <summary>
 		/// Processes current texture

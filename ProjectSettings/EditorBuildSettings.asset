@@ -5,7 +5,40 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/TestLevel.unity
+    guid: 7bf4d717f79b3a041965af1788f34a7d
+  - enabled: 1
+    path: Assets/Scenes/Level_10-Push_em.unity
+    guid: 5d20549b20d04df49ac886f31eb109aa
+  - enabled: 1
+    path: Assets/Scenes/Level_20-Gap.unity
+    guid: 749ea60153255ad46af747a38b8a964d
+  - enabled: 1
+    path: Assets/Scenes/Level_30-Big_Gap.unity
+    guid: 03710371ccff7c04886a52f67e0ce4bd
+  - enabled: 1
+    path: Assets/Scenes/Level_40-Wind.unity
+    guid: 9399008de07f0154d9636178b9019573
+  - enabled: 1
+    path: Assets/Scenes/Level_50_Gegenwind.unity
+    guid: 955b045ea674acd418a2dc24ad32806d
+  - enabled: 1
+    path: Assets/Scenes/Level_60_Sea.unity
+    guid: 80fb9b1ce28d4274b81684f9211c2aab
+  - enabled: 1
+    path: Assets/Scenes/Level_70_Stay_Hydrated.unity
+    guid: b436fec195821024484241002d42ed5d
+  - enabled: 1
+    path: Assets/Scenes/Level_80_Labyrinth.unity
+    guid: 2977fe7f0be729844a35b9ff5d8a5fe6
+  - enabled: 1
+    path: Assets/Scenes/Level_90_Careful_Wind.unity
+    guid: 642a581d03fb90e489ac527b39d4ad22
+  - enabled: 1
+    path: Assets/Scenes/Level_100-Cigarette.unity
+    guid: 208a66a3396aa364ba96993ff63a7a34
   m_configObjects: {}
